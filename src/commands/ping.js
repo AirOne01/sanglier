@@ -1,3 +1,4 @@
 exports.run = (client, msg, args) => {
-  msg.reply("pong!");
+  client.lastDate = Date.now()
+  msg.reply('🏓 Pong');
 };

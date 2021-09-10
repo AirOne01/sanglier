@@ -1,0 +1,27 @@
+{
+  "categories": [
+    { "tag": "utility", "name": "Utilitaire" },
+    { "tag": "misc", "name": "Autres" }
+  ],
+  "commands": [
+    {
+      "name": "help",
+      "description": "Donne des informations sur les commandes",
+      "aliases": ["h", "?", "man"],
+      "syntax": "help [commande]",
+      "category": "utility"
+    },
+    {
+      "name": "ping",
+      "description": "Donne le temps de réaction du bot",
+      "category": "utility"
+    },
+    {
+      "name": "reload",
+      "description": "Recharge une commande à chaud",
+      "aliases": ["rl"],
+      "syntax": "reload <commande>",
+      "category": "misc"
+    }
+  ]
+}
