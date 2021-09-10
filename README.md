@@ -10,8 +10,9 @@ Code et commentaires en anglais, [README.md](.) en français
 
 ## TODO
 
+- [X] Support alias
 - [X] Help
-  - [ ] Permettre de rechercher des commandes par alias
+  - [X] Permettre de rechercher des commandes par alias
 - [X] Ping
 - [ ] Sortie vidéo en images comressés (.gif)
   - [ ] Emulateur PICO-8
