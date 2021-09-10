@@ -42,7 +42,7 @@ Code et commentaires en anglais, [README.md](.) en français
     - [ ] MAL
     - [ ] ADN
     - [ ] Crunchyroll
-- [ ] WolframAlpha
+- [X] WolframAlpha
 - [ ] Récupération emploi du temps
   - [ ] Affichage en images
   - [ ] EDT en pièce-jointe en PDF pour téléchargement
