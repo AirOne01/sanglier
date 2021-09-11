@@ -14,6 +14,7 @@ Code et commentaires en anglais, [README.md](.) en français
 - [X] Help
   - [X] Permettre de rechercher des commandes par alias
 - [X] Ping
+- [X] Infos sur une guilde
 - [ ] Sortie vidéo en images comressés (.gif)
   - [ ] Emulateur PICO-8
   - [ ] Output temporaire vidéo YouTube
