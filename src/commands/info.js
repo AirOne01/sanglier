@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js");
-const color = require("dominant-color");
 
 exports.run = (client, msg, args) => {
   msg.channel.sendTyping();

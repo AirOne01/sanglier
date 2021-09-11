@@ -20,7 +20,7 @@ Code et commentaires en anglais, [README.md](.) en français
   - [ ] Output temporaire vidéo YouTube
 - [ ] Interpréteur en chat
   - [ ] Python
-  - [ ] Brainfuck
+  - [X] Brainfuck
   - [ ] Javascript
   - [ ] Lua
 - [ ] Art ASCII

@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.4",
-    "discord.js": "^13.1.0",
-    "dominant-color": "^0.0.1"
+    "brainfuck-node": "^1.0.2",
+    "discord.js": "^13.1.0"
   }
 }

@@ -1,7 +1,8 @@
 {
   "categories": [
     { "tag": "utility", "name": "Utilitaire" },
-    { "tag": "misc", "name": "Autres" }
+    { "tag": "misc", "name": "Autres" },
+    { "tag": "code", "name": "Programmation" }
   ],
   "commands": [
     {
@@ -22,6 +23,20 @@
       "aliases": ["rl"],
       "syntax": "reload <commande>",
       "category": "misc"
+    },
+    {
+      "name": "info",
+      "description": "Donne des informations sur le serveur",
+      "aliases": ["i"],
+      "syntax": "info",
+      "category": "misc"
+    },
+    {
+      "name": "brainfuck",
+      "description": "Interprète du brainfuck",
+      "aliases": ["bf"],
+      "syntax": "brainfuck <code> [argument]",
+      "category": "code"
     }
   ]
 }
