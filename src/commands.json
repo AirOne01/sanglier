@@ -2,7 +2,8 @@
   "categories": [
     { "tag": "utility", "name": "Utilitaire" },
     { "tag": "misc", "name": "Autres" },
-    { "tag": "code", "name": "Programmation" }
+    { "tag": "code", "name": "Programmation" },
+    { "tag": "game", "name": "Jeux"}
   ],
   "commands": [
     {
@@ -37,6 +38,12 @@
       "aliases": ["bf"],
       "syntax": "brainfuck <code> [argument]",
       "category": "code"
+    },
+    {
+      "name": "osu",
+      "description": "Utilitaire d'informations osu",
+      "syntax": "osu [user/bm] <cible>",
+      "category": "game"
     }
   ]
 }

@@ -1,0 +1,29 @@
+@font-face {
+  font-family: Torus;
+  src: url('./Torus-Regular.otf');
+}
+
+#osuProfile {
+  font-family: Torus;
+  color: white;
+  font-size: 40px;
+}
+
+.supporter_box {
+  background-color: #FF66AB;
+  height: 30px;
+  width: 60px;
+  border-radius: 15px;
+}
+
+.filter-white{
+  filter: saturate(0%) brightness(500%) contrast(500%);
+}
+
+.flag {
+  height: 30px;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-right: 10px;
+  filter: saturate(80%) brightness(120%);
+}

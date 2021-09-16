@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" media="screen" href="./main.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body style="background-color: #2a2226">
+  <div id="osuProfile">
+    <div style="height: 300px;">
+      <img src="https://a.ppy.sh/12551014?1628962608.jpeg" style="width: 200px; border-radius: 20%; margin: 10px" />
+      <span style="position: absolute; top: 20px; left: 240px;">AirOne01</span>
+      <span style="position: absolute; top: 70px; left: 240px; font-size: 24px; color: gray;">aka TheYellowBush</span>
+      <span style="position: absolute; top: 140px; left: 240px" class="supporter_box"></span>
+      <img style="position: absolute; top: 143px; left: 258px; height: 25px;" class="filter-white" src="./heart.svg" />
+      <a
+        style="position: absolute; top: 180px; left: 240px; border-top: solid 2px; padding-top: 2px; font-size: 30px; color: rgb(224, 184, 202);">
+        <img class="flag" src="https://flagcdn.com/h40/fr.png"
+          srcset="https://flagcdn.com/h80/fr.png 2x, https://flagcdn.com/h120/fr.png 3x" />France</p>
+      </a>
+    </div>
+    <canvas id="rankChart" width="780" height="280"></canvas>
+  </div>
+</body>
+
+</html>
+<!-- Torus, Inter, 'Helvetica Neue', Tahoma, Arial,
+          'Hiragino Kaku Gothic ProN', Meiryo, 'Microsoft YaHei',
+          'Apple SD Gothic Neo', sans-serif -->
+
+<!--
+  data: [
+    413989, 414479, 415047, 415576, 416061, 416659,
+    417216, 417799, 418349, 418893, 419419, 419997,
+    420587, 421199, 420588, 420927, 421457, 421963,
+    422481, 422994, 423516, 424016, 424551, 425042,
+    425523, 426058, 426618, 427126, 427674, 428153,
+    428682, 429260, 429807, 430408, 430971, 431506,
+    431995, 432477, 433010, 433547, 434003, 434491,
+    434997, 435517, 435964, 436397, 436888, 437412,
+    437889, 390608, 391365, 392045, 392758, 393462,
+    394178, 394867, 395536, 396226, 396851, 397514,
+    398186, 398790, 399427, 400094, 400805, 401484,
+    402154, 402769, 403381, 403931, 404503, 405102,
+    405134, 405791, 406470, 407100, 407766, 408403,
+    408878, 406742, 407325, 407944, 408453, 408974,
+    409544, 410122, 410702, 411274, 411960, 412174,
+  ]
+-->

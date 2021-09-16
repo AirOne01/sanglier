@@ -31,5 +31,10 @@ module.exports = (client, msg) => {
       `Commande inconnue. Utilise \`${client.config.prefix}help\` pour plus d'infos.`
     ); // bad command handler
   }
-  cmd.run(client, msg, args); // run the command
+  try {
+    cmd.run(client, msg, args); // run the command
+  } catch (e) {
+    console.log(e);
+    msg.reply('Une erreur est survenue pendant l\'éxécution de cette commmande. dsl. ```\n' + e + '\n```');
+  }
 };
