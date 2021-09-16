@@ -21,7 +21,7 @@ Code et commentaires en anglais, [README.md](.) en français
 - [ ] Interpréteur en chat
   - [ ] Python
   - [X] Brainfuck
-  - [ ] Javascript
+  - [X] Javascript
   - [ ] Lua
 - [ ] Art ASCII
 - [ ] Channel audio temporaire

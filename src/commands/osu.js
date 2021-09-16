@@ -68,11 +68,11 @@ exports.run = (client, msg, args) => {
                   )}`
                 );
                 await page.evaluate((data) => {
-                  let labels = "";
+                  let labels = [];
                   for (let i = 0; i < data.length; i++) {
-                    labels += ' ';
+                    labels.push('');
                   };
-                  
+
                   return;
                   const ctx = document
                     .getElementById("rankChart")

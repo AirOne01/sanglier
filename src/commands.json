@@ -44,6 +44,13 @@
       "description": "Utilitaire d'informations osu",
       "syntax": "osu [user/bm] <cible>",
       "category": "game"
+    },
+    {
+      "name": "javascript",
+      "description": "Interprète du javascript",
+      "aliases": ["js"],
+      "syntax": "js <code>",
+      "category": "code"
     }
   ]
 }
