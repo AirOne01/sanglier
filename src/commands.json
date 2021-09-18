@@ -1,6 +1,6 @@
 {
   "categories": [
-    { "tag": "utility", "name": "Utilitaire" },
+    { "tag": "util", "name": "Utilitaire" },
     { "tag": "misc", "name": "Autres" },
     { "tag": "code", "name": "Programmation" },
     { "tag": "game", "name": "Jeux"}
@@ -11,12 +11,12 @@
       "description": "Donne des informations sur les commandes",
       "aliases": ["h", "?", "man"],
       "syntax": "help [commande]",
-      "category": "utility"
+      "category": "util"
     },
     {
       "name": "ping",
       "description": "Donne le temps de réaction du bot",
-      "category": "utility"
+      "category": "util"
     },
     {
       "name": "reload",
@@ -47,10 +47,17 @@
     },
     {
       "name": "javascript",
-      "description": "Interprète du javascript",
+      "description": "Interprète du javascript.\nPour afficher du code, appelez une variable ou une expression *directement*, `console.log()` ne fonctionne pas.",
       "aliases": ["js"],
       "syntax": "js <code>",
       "category": "code"
+    },
+    {
+      "name": "ascii",
+      "description": "Formate du texte en caractères Ascii",
+      "aliases": ["asciiart", "art", "aa"],
+      "syntax": "aa [police] <texte>",
+      "category": "util"
     }
   ]
 }

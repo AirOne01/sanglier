@@ -6,6 +6,6 @@ exports.run = (client, msg, args) => {
 
   s.run(code, out => {
     msg.reply(`\`${out.result}\``);
-    out.result ? msg.channel.send('Pour plus d\'infos sur l\'utilisation de cette commande, tape `' + client.config.prefix + 'help js`') : null;
+    if (out.result === "null") msg.channel.send('<@' + msg.author.id + '> Pour plus d\'infos sur l\'utilisation de cette commande, tape `' + client.config.prefix + 'help js`');
   })
 }
