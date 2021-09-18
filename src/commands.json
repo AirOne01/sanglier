@@ -3,7 +3,8 @@
     { "tag": "util", "name": "Utilitaire" },
     { "tag": "misc", "name": "Autres" },
     { "tag": "code", "name": "Programmation" },
-    { "tag": "game", "name": "Jeux"}
+    { "tag": "game", "name": "Jeux"},
+    { "tag": "manga", "name": "Mangas & Animes"}
   ],
   "commands": [
     {
@@ -58,6 +59,13 @@
       "aliases": ["asciiart", "art", "aa"],
       "syntax": "aa [police] <texte>",
       "category": "util"
+    },
+    {
+      "name": "mangadex",
+      "description": "Des infos sur vos mangas preéferrés :-P",
+      "aliases": ["md"],
+      "syntax": "md <titre>",
+      "category": "manga"
     }
   ]
 }

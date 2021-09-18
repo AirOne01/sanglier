@@ -10,7 +10,7 @@ axios.get("https://artii.herokuapp.com/fonts_list").then((res) => {
 });
 
 exports.run = (client, msg, args) => {
-  if (args.length === 1 && (args[0] === "font" || args[0] === "fonts")) {
+  if (args.length === 1 && (["fonts","font"].includes(args[0]))) {
     // if asking for font list
     msg.reply({
       files: [
