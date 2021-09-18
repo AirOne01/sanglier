@@ -23,7 +23,7 @@ Code et commentaires en anglais, [README.md](.) en français
   - [X] Brainfuck
   - [X] Javascript
   - [ ] Lua
-- [ ] Art ASCII
+- [X] Art ASCII
 - [ ] Channel audio temporaire
 - [ ] Intégrations (commandes ```top``` et ```profile```)
   - [ ] osu!
