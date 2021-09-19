@@ -11,14 +11,14 @@ client.config = require("../config/config.json"); // loads config in the client 
 // async because we'll call await methods
 (async () => {
   // launch the browser, so that it isn't call multiple times
-  console.log("💫 Lancement du navigateur de puppeteer");
+  console.log("🪐 Lancement du navigateur de puppeteer 💫");
   client.browser = await pupp.launch(); // the reason the whole file is under async
-  console.log("🪐 Chromium lancé !");
+  console.log("🪐 Chromium lancé ! ✔️");
 
   // Magical Event-Assigning Loop®️
   // it crawls through the 'events' folder and assign every file to its event
   fs.readdir("./events/", (err, files) => {
-    console.log(`💫 Chargement des events...`);
+    console.log(`🌟 Chargement des events... 💫`);
     if (err) return console.log(err);
     let errors = 0;
     files.forEach((file) => {
@@ -29,19 +29,19 @@ client.config = require("../config/config.json"); // loads config in the client 
         const event = require(`./events/${file}`);
         client.on(eventName, event.bind(null, client)); // binds file to event
       } catch (e) {
-        console.log(`❌ Impossible de charger ${file}\n${e}`);
+        console.log(`🌟 Impossible de charger ${file} ❌\n${e}`);
         errors++;
         loaded = false;
       }
       if (!loaded) return;
       // note: the event in the file will be called with 'client' as its only argument
-      console.log(`✔️ Event chargé chargée: ${eventName}`);
+      console.log(`🌟 Event chargé chargée: ${eventName} ✔️`);
     });
     if (errors === 0) {
-      console.log(`👌 Events chargés. (${files.length}/${files.length})`);
+      console.log(`🌟 Events chargés. (${files.length}/${files.length}) 👌`);
     } else {
       console.log(
-        `⚠️ Events chargés. (${files.length - errors}/${files.length})`
+        `🌟 Events chargés. (${files.length - errors}/${files.length}) ⚠️`
       );
     }
   });
@@ -51,7 +51,7 @@ client.config = require("../config/config.json"); // loads config in the client 
   // Magical Command-Assigning Loop®️
   // same as the one above, except we store the commands in 'client' for later use
   fs.readdir("./commands/", (err, files) => {
-    console.log(`💫 Chargement des commandes...`);
+    console.log(`☄️ Chargement des commandes... 💫`);
     if (err) return console.log(err);
     let errors = 0;
     files.forEach((file) => {
@@ -61,7 +61,7 @@ client.config = require("../config/config.json"); // loads config in the client 
       try {
         command = require(`./commands/${file}`); // loads the command
       } catch (e) {
-        console.log(`❌ Impossible de charger ${file}\n${e}`);
+        console.log(`☄️ Impossible de charger ${file} ❌\n${e}`);
         errors++;
         loaded = false;
       }
@@ -69,15 +69,15 @@ client.config = require("../config/config.json"); // loads config in the client 
       const commandName = file.split(".")[0]; // gets the name
       client.commands.set(commandName, command); // registers the command
 
-      console.log(`✔️ Commande chargée: ${commandName}`);
+      console.log(`☄️ Commande chargée: ${commandName} ✔️`);
     });
     if (errors === 0) {
-      console.log(`👌 Commandes chargées. (${files.length}/${files.length})`);
+      console.log(`☄️ Commandes chargées. (${files.length}/${files.length}) 👌`);
     } else {
       console.log(
-        `⚠️ Commandes chargées chargés. (${files.length - errors}/${
+        `☄️ Commandes chargées. (${files.length - errors}/${
           files.length
-        })`
+        }) ⚠️`
       );
     }
   });

@@ -39,6 +39,7 @@ Code et commentaires en anglais, [README.md](.) en français
   - [ ] Dota 2
   - [ ] Animes & mangas
     - [X] Mangadex
+      - [ ] TODO: Optimiser
     - [ ] AniList
     - [ ] MAL
     - [ ] ADN
