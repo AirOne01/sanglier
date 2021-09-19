@@ -1,15 +1,33 @@
 #!/usr/bin/node
 const { Client, Intents, Collection } = require("discord.js");
+const prompts = require("prompts");
 const fs = require("fs");
 const pupp = require("puppeteer");
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
 
-client.config = require("../config/config.json"); // loads config in the client object
+// loads config in the client object
+client.config = require("../config/config.json");
 
 // async because we'll call await methods
 (async () => {
+  /// Using prompts to ask for the unprecized options
+  console.log("⚙️ Configuration avec prompts 💫");
+  const list = ["token", "prefix", "deeplKey", "wolframKey", "osuId", "osuSecret", "MDUser", "MDPwd"];
+  const secret = ["token", "deeplKey", "wolframKey", "osuSecret", "MDPwd"];
+  for (let i = 0; i < list.length; i++) {
+    if (client.config.hasOwnProperty(list[i])) continue;
+    const response = await prompts({
+      type: "text",
+      name: "value",
+      message: "Veuillez renseigner '" + list[i] + "'"
+    });
+    client.config[list[i]] = response.value;
+  }
+  fs.writeFileSync('../config/config.json', JSON.stringify(client.config, null, 2));
+  console.log("⚙️ Configuration terminée ✔️");
+
   // launch the browser, so that it isn't call multiple times
   console.log("🪐 Lancement du navigateur de puppeteer 💫");
   client.browser = await pupp.launch(); // the reason the whole file is under async

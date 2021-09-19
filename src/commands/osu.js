@@ -59,8 +59,8 @@ exports.run = (client, msg, args) => {
               const { a, s, sh, ss, ssh } = res.statistics.grade_counts;
 
               let desc = ""
-              desc += ":flag_" + country_code.toLowerCase() + ": " + require("../../data/countries.json")[country_code.toUpperCase()] + "⠀⠀";
-              if (is_supporter) desc += "<:supporter:889183831138111509> osu!supporter⠀⠀";
+              desc += ":flag_" + country_code.toLowerCase() + ": " + require("../../data/countries.json")[country_code.toUpperCase()] + "⠀";
+              if (is_supporter) desc += "<:supporter:889183831138111509> osu!supporter⠀";
               const time = new Date(play_time * 1000).toISOString().substr(11, 8);
               //const rx = /(?<=(:\d\d){2}).*/gm.exec(time)[1].replace(/:/gm, "'") + "\"";
               //const match = /(?<=(:\d\d){2}).*/gm.exec(time)[1]

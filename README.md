@@ -10,7 +10,9 @@ Code et commentaires en anglais, [README.md](.) en français
 
 ## TODO
 
+- [ ] Support du fichier de configuration
 - [X] Support alias
+  - [ ] Alias différent pour guilde et joueur
 - [X] Help
   - [X] Permettre de rechercher des commandes par alias
 - [X] Ping
