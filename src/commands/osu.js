@@ -1,7 +1,5 @@
 const axios = require("axios");
-const Chart = require("chart.js").Chart;
-const fs = require("fs");
-const path = require("path");
+const { MessageEmbed } = require("discord.js")
 
 exports.run = (client, msg, args) => {
   if (args.length < 2) return msg.reply("Syntaxe: `osu [user/bm] <cible>`");
@@ -33,6 +31,7 @@ exports.run = (client, msg, args) => {
           break;
         }
         case "profile":
+        case "u":
         case "usr":
         case "user": {
           args.shift();
@@ -48,81 +47,66 @@ exports.run = (client, msg, args) => {
               // gets all info into specific variables
               const { country_code, avatar_url, username, id, is_supporter } =
                 res;
-              const rank_history = res.rank_history.data;
+              //const rank_history = res.rank_history.data;
               const level = res.statistics.level.current;
-              const level_progress = res.statistics.level.current;
+              const level_progress = res.statistics.level.progress;
               const acc = res.statistics.hit_accuracy;
               const plays = res.statistics.play_count;
               const max_combo = res.statistics.maximum_combo;
               const rank = res.statistics.global_rank;
               const { country_rank } = res.statistics;
               const { play_time, pp } = res.statistics;
+              const { a, s, sh, ss, ssh } = res.statistics.grade_counts;
 
-              (async (data) => {
-                const page = await client.browser.newPage();
+              let desc = ""
+              desc += ":flag_" + country_code.toLowerCase() + ": " + require("../../data/countries.json")[country_code.toUpperCase()] + "⠀⠀";
+              if (is_supporter) desc += "<:supporter:889183831138111509> osu!supporter⠀⠀";
+              const time = new Date(play_time * 1000).toISOString().substr(11, 8);
+              //const rx = /(?<=(:\d\d){2}).*/gm.exec(time)[1].replace(/:/gm, "'") + "\"";
+              //const match = /(?<=(:\d\d){2}).*/gm.exec(time)[1]
+              //console.log(match);
+              //desc += time.replace(match, rx)
+              desc += ":stopwatch: " + time
 
-                await page.goto(
-                  `file:///${path.join(
-                    __dirname,
-                    "../web/osuUserProfile.html"
-                  )}`
-                );
-                await page.evaluate((data) => {
-                  let labels = [];
-                  for (let i = 0; i < data.length; i++) {
-                    labels.push('');
-                  };
+              const f1 =
+                `<:arrowwhite:889175332291239967> __Rang__` + "\n" +
+                `\n<:arrowwhite:889175332291239967> __Perf__` +
+                `\n<:arrowwhite:889175332291239967> __Accu__` +
+                `\n<:arrowwhite:889175332291239967> __Niveau__` +
+                `\n<:arrowwhite:889175332291239967> __Parties__` +
+                `\n<:arrowwhite:889175332291239967> __Combo__`;
 
-                  return;
-                  const ctx = document
-                    .getElementById("rankChart")
-                    .getContext("2d");
-                  const chart = new Chart(ctx, {
-                    type: "line",
-                    data: {
-                      labels: labels,
-                      datasets: [
-                        {
-                          data: data,
-                          label: "Asia",
-                          borderColor: "#8e5ea2",
-                          fill: false,
-                          tension: 0.3,
-                        },
-                      ],
-                      options: {
-                        scales: {
-                          yAxes: [
-                            {
-                              ticks: {
-                                reverse: true,
-                              },
-                            },
-                          ],
-                        },
-                      },
-                    },
-                  });
-                },{data});
-                const image = await page.screenshot({
-                  type: "jpeg",
-                  quality: 50,
-                  omitBackground: true,
-                  clip: {
-                    x: 0,
-                    y: 0,
-                    width: 800,
-                    height: 600,
-                  },
-                });
+              const f2 =
+                `*Monde*: **#${rank}**` +
+                `\n*${country_code.toUpperCase()}*: #${country_rank}` +
+                `\n**${pp}** PP` +
+                `\n**${acc}**%` +
+                `\n**${level}**⠀(*${level_progress}*%)` +
+                `\n*${plays}* au total` +
+                `\nx*${max_combo}* max`
 
-                msg.reply({ files: [image] });
-                await page.close();
-                // clears some memory
-              })(rank_history);
+              const f3 =
+                "__**Scores**__ :\n" +
+                `\n<:rankingXH:889200632186146866> ${ssh}` +
+                `\n<:rankingX:889200601907490896> ${ss}` +
+                `\n<:rankingSH:889200561197551646> ${sh}` +
+                `\n<:rankingS:889200534685364238> ${s}` +
+                `\n<:rankingA:889200648946593793> ${a}`
+
+              const emb = new MessageEmbed()
+                .setTitle(username)
+                .setThumbnail(avatar_url)
+                .setDescription(desc)
+                .addField("⠀", f1, true)
+                .addField("⠀", f2, true)
+                .addField("⠀", f3, true)
+                .setURL("https://osu.ppy.sh/users/" + id)
+
+              msg.reply({ embeds: [emb] });
+              // clears some memory
             })
             .catch((err) => {
-              if (err.code === 404) {
+              if (err.code === 404 || err.message === "Request failed with status code 404") {
                 return msg.reply("Utilisateur inconnu");
               } else {
                 return msg.reply(

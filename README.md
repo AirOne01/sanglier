@@ -26,7 +26,7 @@ Code et commentaires en anglais, [README.md](.) en français
 - [X] Art ASCII
 - [ ] Channel audio temporaire
 - [ ] Intégrations (commandes ```top``` et ```profile```)
-  - [ ] osu!
+  - [X] osu!
   - [ ] Hypixel
   - [ ] Steam
   - [ ] SteamDB
