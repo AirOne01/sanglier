@@ -38,7 +38,7 @@ Code et commentaires en anglais, [README.md](.) en français
   - [ ] League of Legends
   - [ ] Dota 2
   - [ ] Animes & mangas
-    - [ ] Mangadex
+    - [X] Mangadex
     - [ ] AniList
     - [ ] MAL
     - [ ] ADN

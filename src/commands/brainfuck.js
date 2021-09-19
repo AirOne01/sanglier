@@ -1,9 +1,9 @@
 const { MessageEmbed } = require('discord.js');
 
 exports.run = (client, msg, args) => {
-  if (args.lenght < 1) {
-    msg.reply(
-      `Syntax: \`${require('../commands.json').commands.brainfuck.syntax}\``
+  if (args.length < 1) {
+    return msg.reply(
+      `Syntax: \`${client.config.prefix}brainfuck <code> [argument]\``
     );
   }
 
