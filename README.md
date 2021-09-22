@@ -10,9 +10,11 @@ Code et commentaires en anglais, [README.md](.) en français
 
 ## TODO
 
+- [ ] Ajouter le support des commandes natives Discord
+- [ ] Ajouter des [boutons interractifs](https://www.npmjs.com/package/discord-buttons)
 - [X] Support du fichier de configuration
 - [X] Support alias
-  - [ ] Alias différent pour guilde et joueur
+  - [ ] Alias différent pour guilde et utilisateur
 - [X] Help
   - [X] Permettre de rechercher des commandes par alias
 - [X] Ping
