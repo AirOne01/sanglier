@@ -33,7 +33,8 @@ exports.run = (client, msg, args) => {
         case "profile":
         case "u":
         case "usr":
-        case "user": {
+        case "user":
+        default: {
           args.shift();
           axios({
             method: "get",
@@ -115,11 +116,6 @@ exports.run = (client, msg, args) => {
               }
             });
           break;
-        }
-        default: {
-          msg.reply(
-            `Paramètre inconnu: \`${args[0]}\`\nUtilisez \`user\` ou \`bm\``
-          );
         }
       }
     })

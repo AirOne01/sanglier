@@ -48,7 +48,7 @@
     },
     {
       "name": "javascript",
-      "description": "Interprète du javascript.\nPour afficher du code, appelez une variable ou une expression *directement*, `console.log()` ne fonctionne pas.",
+      "description": "Commande supprimée pour des raisons de sécurité",
       "aliases": ["js"],
       "syntax": "js <code>",
       "category": "code"
@@ -66,6 +66,13 @@
       "aliases": ["md"],
       "syntax": "md <titre>",
       "category": "manga"
+    },
+    {
+      "name": "gameprice",
+      "description": "Cherche le meilleur prix pour un jeu",
+      "aliases": ["gp", "price"],
+      "syntax": "gameprice <jeu>",
+      "category": "game"
     }
   ]
 }
