@@ -1,47 +1,36 @@
-import { Client, Intents, Collection } from "discord.js";
-import * as prompts from "prompts";
-import * as fs from "fs";
-import * as pupp from "puppeteer";
+#!/usr/bin/node
+const { Client, Intents, Collection } = require("discord.js");
+const prompts = require("prompts");
+const fs = require("fs");
+const pupp = require("puppeteer");
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
 
 // loads config in the client object
-client["config"] = require("../config/config.json");
+client.config = require("../config/config.json");
 
 // async because we'll call await methods
 (async () => {
   /// Using prompts to ask for the unprecized options
   console.log("⚙️ Configuration avec prompts 💫");
-  const list: string[] = [
-    "token",
-    "prefix",
-    "deeplKey",
-    "wolframKey",
-    "osuId",
-    "osuSecret",
-    "MDUser",
-    "MDPwd",
-  ];
-  const secret: string[] = ["token", "deeplKey", "wolframKey", "osuSecret", "MDPwd"];
+  const list = ["token", "prefix", "deeplKey", "wolframKey", "osuId", "osuSecret", "MDUser", "MDPwd"];
+  const secret = ["token", "deeplKey", "wolframKey", "osuSecret", "MDPwd"];
   for (let i = 0; i < list.length; i++) {
-    if (client["config"].hasOwnProperty(list[i])) continue;
-    const response: {value: string} = await prompts({
+    if (client.config.hasOwnProperty(list[i])) continue;
+    const response = await prompts({
       type: "text",
       name: "value",
-      message: "Veuillez renseigner '" + list[i] + "'",
+      message: "Veuillez renseigner '" + list[i] + "'"
     });
-    client["config"][list[i]] = response.value;
-  };
-  fs.writeFileSync(
-    "../config/config.json",
-    JSON.stringify(client["config"], null, 2)
-  );
+    client.config[list[i]] = response.value;
+  }
+  fs.writeFileSync('../config/config.json', JSON.stringify(client.config, null, 2));
   console.log("⚙️ Configuration terminée ✔️");
 
   // launch the browser, so that it isn't call multiple times
   console.log("🪐 Lancement du navigateur de puppeteer 💫");
-  client["browser"] = await pupp.launch(); // the reason the whole file is under async
+  client.browser = await pupp.launch(); // the reason the whole file is under async
   console.log("🪐 Chromium lancé ! ✔️");
 
   // Magical Event-Assigning Loop®️
@@ -49,13 +38,13 @@ client["config"] = require("../config/config.json");
   fs.readdir("./events/", (err, files) => {
     console.log(`🌟 Chargement des events... 💫`);
     if (err) return console.log(err);
-    let errors: number = 0;
+    let errors = 0;
     files.forEach((file) => {
       if (!file.endsWith("js")) return; // MacOS thing
-      let loaded: boolean = true;
-      const eventName: string = file.split(".")[0]; // gets name to register event
+      let loaded = true;
+      const eventName = file.split(".")[0]; // gets name to register event
       try {
-        const event: any = require(`./events/${file}`);
+        const event = require(`./events/${file}`);
         client.on(eventName, event.bind(null, client)); // binds file to event
       } catch (e) {
         console.log(`🌟 Impossible de charger ${file} ❌\n${e}`);
@@ -75,14 +64,14 @@ client["config"] = require("../config/config.json");
     }
   });
 
-  client["commands"] = new Collection(); // Enmap collection of commands
+  client.commands = new Collection(); // Enmap collection of commands
 
   // Magical Command-Assigning Loop®️
   // same as the one above, except we store the commands in 'client' for later use
   fs.readdir("./commands/", (err, files) => {
     console.log(`☄️ Chargement des commandes... 💫`);
     if (err) return console.log(err);
-    let errors: number = 0;
+    let errors = 0;
     files.forEach((file) => {
       if (!file.endsWith("js")) return; // MacOS again
       let loaded = true;
@@ -96,20 +85,20 @@ client["config"] = require("../config/config.json");
       }
       if (!loaded) return;
       const commandName = file.split(".")[0]; // gets the name
-      client["commands"].set(commandName, command); // registers the command
+      client.commands.set(commandName, command); // registers the command
 
       console.log(`☄️ Commande chargée: ${commandName} ✔️`);
     });
     if (errors === 0) {
-      console.log(
-        `☄️ Commandes chargées. (${files.length}/${files.length}) 👌`
-      );
+      console.log(`☄️ Commandes chargées. (${files.length}/${files.length}) 👌`);
     } else {
       console.log(
-        `☄️ Commandes chargées. (${files.length - errors}/${files.length}) ⚠️`
+        `☄️ Commandes chargées. (${files.length - errors}/${
+          files.length
+        }) ⚠️`
       );
     }
   });
 
-  client.login(client["config"].token);
+  client.login(client.config.token);
 })();
