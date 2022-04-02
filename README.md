@@ -1,3 +1,8 @@
+# This project was abandonned
+
+My latest Discord bot, made for fun at the end of the lockdowns in France.
+I won't pick it up.
+
 ![Photo de sanglier](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Eberswalde_Zoo_12-2017_img2.jpg/1024px-Eberswalde_Zoo_12-2017_img2.jpg)
 
 # Sanglier
